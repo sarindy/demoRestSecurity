@@ -1,0 +1,13 @@
+package com.sarindy.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.sarindy.model.User;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
+
+	public User findByEmail(String email);
+
+}
