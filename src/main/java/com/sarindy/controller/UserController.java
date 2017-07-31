@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sarindy.config.UserAuthentication;
 import com.sarindy.model.Role;
 import com.sarindy.model.User;
 import com.sarindy.service.UserService;
@@ -17,6 +18,9 @@ public class UserController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	private UserAuthentication userAuth;
 	
 	
 
@@ -64,7 +68,7 @@ public class UserController {
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
 		System.out.println(user.getPassword());
-		System.out.println(bCryptPasswordEncoder.matches("123456", user.getPassword()));
+		System.out.println(userAuth.Authenticated(user, "123456"));
 		
 		return "User Created";
 	}
