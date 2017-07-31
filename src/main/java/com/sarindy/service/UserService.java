@@ -43,6 +43,7 @@ public class UserService {
 		Role userRole = roleRepository.findByRole(role);
 		user.setRoles(new ArrayList<Role>(Arrays.asList(userRole)));
 		userRepository.save(user);
+		//bCryptPasswordEncoder.matches(rawPassword, encodedPassword)
 
 	}
 	public void saveRole(Role role){
