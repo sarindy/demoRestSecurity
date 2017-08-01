@@ -8,13 +8,11 @@ import com.sarindy.model.User;
 
 @Configuration
 public class UserAuthentication {
-	
+
 	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder; 
-	
-	
-	public Boolean Authenticated(User user,String password) {
-		
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	public Boolean Authenticated(User user, String password) {
 		return bCryptPasswordEncoder.matches(password, user.getPassword());
 	}
 
